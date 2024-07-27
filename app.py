@@ -52,7 +52,11 @@ migrate = Migrate(app, db)
 from prof import allowed_file, profile as profile_blueprint  # Import your blueprint
 app.register_blueprint(profile_blueprint)
 
-    
+@app.route('/create_tables')
+def create_tables():
+    with app.app_context():
+        db.create_all()
+    return 'Tables created successfully!'   
 
 # Ensure models are imported after initializing SQLAlchemy
 from models import Comment, Follow, Like, Message, Notification, User, Post
