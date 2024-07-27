@@ -1,9 +1,5 @@
-import click
-from flask.cli import with_appcontext
-from models import db
+from app import app, db
 
-@click.command(name='create_tables')
-@with_appcontext
-def create_tables():
+with app.app_context():
     db.create_all()
-    click.echo('Tables created successfully!')
+    print("Tables created successfully!")
