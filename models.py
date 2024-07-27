@@ -3,7 +3,6 @@ from flask_sqlalchemy import SQLAlchemy
 import pytz
 from flask_login import UserMixin
 
-
 db = SQLAlchemy()
 EAT = timezone(timedelta(hours=3))
 
