@@ -21,7 +21,7 @@ load_dotenv()
 app = Flask(__name__)
 
 # Configure your database URI
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL', 'postgresql://localhost/social-media')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL', 'app_user://dpg-cqij99ggph6c738qh610-a/postgres_arx5')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = os.urandom(24).hex()
 app.config['UPLOAD_FOLDER'] = 'static/uploads'
