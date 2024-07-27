@@ -34,15 +34,7 @@ login_manager = LoginManager(app)
 login_manager.login_view = 'login'
 socketio = SocketIO(app)
 
-from com import create_tables
 
-# ... (rest of your app setup)
-
-app.cli.add_command(create_tables)
-
-# ... (rest of your app setup)
-
-app.cli.add_command(create_tables)
 
 genai.configure(api_key=os.getenv('GEMINI_API_KEY'))
 model = genai.GenerativeModel('gemini-pro')
