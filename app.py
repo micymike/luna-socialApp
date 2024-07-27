@@ -34,6 +34,16 @@ login_manager = LoginManager(app)
 login_manager.login_view = 'login'
 socketio = SocketIO(app)
 
+from com import create_tables
+
+# ... (rest of your app setup)
+
+app.cli.add_command(create_tables)
+
+# ... (rest of your app setup)
+
+app.cli.add_command(create_tables)
+
 genai.configure(api_key=os.getenv('GEMINI_API_KEY'))
 model = genai.GenerativeModel('gemini-pro')
 
@@ -52,11 +62,7 @@ migrate = Migrate(app, db)
 from prof import allowed_file, profile as profile_blueprint  # Import your blueprint
 app.register_blueprint(profile_blueprint)
 
-@app.route('/create_tables')
-def create_tables():
-    with app.app_context():
-        db.create_all()
-    return 'Tables created successfully!'   
+   
 
 # Ensure models are imported after initializing SQLAlchemy
 from models import Comment, Follow, Like, Message, Notification, User, Post
