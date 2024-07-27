@@ -1,0 +1,8 @@
+services:
+  - type: web
+    name: luna-ai-web-app
+    env: python
+    buildCommand: ""
+    startCommand: |
+      flask db upgrade
+      gunicorn app:app
