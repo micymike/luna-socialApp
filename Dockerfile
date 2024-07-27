@@ -6,7 +6,7 @@ WORKDIR /app
 
 COPY --chown=user ./requirements.txt requirements.txt
 
-RUN pip install -r requirements.txt
+RUN pip install -r requirements.txt && flask db upgrade
 
 COPY --chown=user . /app
 
