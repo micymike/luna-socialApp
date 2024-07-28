@@ -34,12 +34,6 @@ login_manager = LoginManager(app)
 login_manager.login_view = 'login'
 socketio = SocketIO(app)
 
-@app.route('/recreate_tables')
-def recreate_tables():
-    with app.app_context():
-        db.drop_all()
-        db.create_all()
-    return 'Tables recreated successfully!'
 
 genai.configure(api_key=os.getenv('GEMINI_API_KEY'))
 model = genai.GenerativeModel('gemini-pro')

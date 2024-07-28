@@ -1,2 +1,4 @@
 .env
 mess1.py
+pg_hba.conf
+postgresql.conf
